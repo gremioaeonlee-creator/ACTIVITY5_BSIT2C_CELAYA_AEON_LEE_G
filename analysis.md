@@ -1,0 +1,3 @@
+# Analysis
+
+The linked-list stack pushes and pops at the head because the head is the only end of a singly linked list that can be reached and changed in constant time. Each node only points forward, so removing the tail would require walking the whole list to find the node before it, which makes pop O(n). Working at the head keeps both push and pop at O(1). The array queue must be circular because without wrapping, the front index keeps moving forward as items are dequeued and the slots behind it can never be reused, while shifting every element left after each dequeue would make dequeue O(n). Using the modulo operator to wrap the front and rear indices back to index 0 lets freed slots be reused and keeps enqueue and dequeue at O(1).

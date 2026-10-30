@@ -1,0 +1,124 @@
+
+============================================================
+ArrayStack (capacity 3)
+============================================================
+pop on empty -> Error: Stack underflow: cannot pop from an empty stack
+peek on empty -> Error: Stack is empty: nothing to peek at
+push(A)
+Stack (top to bottom): A
+Array: ['A', None, None]  top index = 0
+push(B)
+Stack (top to bottom): B | A
+Array: ['A', 'B', None]  top index = 1
+push(C)
+Stack (top to bottom): C | B | A
+Array: ['A', 'B', 'C']  top index = 2
+push(D) on full -> Error: Stack overflow: cannot push onto a full stack
+peek -> C
+pop -> C
+Stack (top to bottom): B | A
+Array: ['A', 'B', None]  top index = 1
+is_full -> False
+is_empty -> False
+
+============================================================
+LinkedStack
+============================================================
+pop on empty -> Error: Stack underflow: cannot pop from an empty stack
+peek on empty -> Error: Stack is empty: nothing to peek at
+push(A)
+Stack (top to bottom): A
+push(B)
+Stack (top to bottom): B | A
+push(C)
+Stack (top to bottom): C | B | A
+peek -> C
+pop -> C
+pop -> B
+pop -> A
+Stack (top to bottom): (empty)
+pop on empty -> Error: Stack underflow: cannot pop from an empty stack
+
+============================================================
+ArrayQueue (capacity 4), circular wrap-around
+============================================================
+dequeue on empty -> Error: Queue underflow: cannot dequeue from an empty queue
+peek_front on empty -> Error: Queue is empty: nothing to peek at
+enqueue(A)
+Queue (front to rear): A
+Array: ['A', None, None, None]  front index = 0  size = 1
+enqueue(B)
+Queue (front to rear): A | B
+Array: ['A', 'B', None, None]  front index = 0  size = 2
+enqueue(C)
+Queue (front to rear): A | B | C
+Array: ['A', 'B', 'C', None]  front index = 0  size = 3
+enqueue(D)
+Queue (front to rear): A | B | C | D
+Array: ['A', 'B', 'C', 'D']  front index = 0  size = 4
+enqueue(E) on full -> Error: Queue overflow: cannot enqueue into a full queue
+dequeue -> A
+dequeue -> B
+Queue (front to rear): C | D
+Array: [None, None, 'C', 'D']  front index = 2  size = 2
+Enqueuing past the physical end of the array:
+enqueue(E)
+Queue (front to rear): C | D | E
+Array: ['E', None, 'C', 'D']  front index = 2  size = 3
+enqueue(F)
+Queue (front to rear): C | D | E | F
+Array: ['E', 'F', 'C', 'D']  front index = 2  size = 4
+peek_front -> C
+dequeue -> C
+dequeue -> D
+dequeue -> E
+dequeue -> F
+Queue (front to rear): (empty)
+Array: [None, None, None, None]  front index = 2  size = 0
+
+============================================================
+LinkedQueue
+============================================================
+dequeue on empty -> Error: Queue underflow: cannot dequeue from an empty queue
+peek_front on empty -> Error: Queue is empty: nothing to peek at
+enqueue(A)
+Queue (front to rear): A
+enqueue(B)
+Queue (front to rear): A | B
+enqueue(C)
+Queue (front to rear): A | B | C
+peek_front -> A
+dequeue -> A
+dequeue -> B
+dequeue -> C
+Queue (front to rear): (empty)
+enqueue(X) after becoming empty
+Queue (front to rear): X
+dequeue -> X
+dequeue on empty -> Error: Queue underflow: cannot dequeue from an empty queue
+
+============================================================
+Application: balanced parentheses
+============================================================
+'()' -> Balanced
+'([]{})' -> Balanced
+'(]' -> Not balanced
+'((())' -> Not balanced
+'{[()]}' -> Balanced
+')(' -> Not balanced
+'' -> Balanced
+'a(b)c[d]' -> Balanced
+
+============================================================
+Application: print queue simulation
+============================================================
+Enqueued job J101 (5 pages)
+Enqueued job J102 (12 pages)
+Enqueued job J103 (3 pages)
+Enqueued job J104 (8 pages)
+
+Print order 1: job J101 (5 pages), waited behind 0 pages
+Print order 2: job J102 (12 pages), waited behind 5 pages
+Print order 3: job J103 (3 pages), waited behind 17 pages
+Print order 4: job J104 (8 pages), waited behind 20 pages
+Total pages printed: 28
